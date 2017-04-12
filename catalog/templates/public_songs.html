@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+<section class="row">
+    <section class="col-xs-12 text-center">
+        <h1>{{ curr_genre.name }}</h1>
+        <p>Here's a list of {{ curr_genre.name }} music songs submitted by our users.</p>
+    </section>
+</section>
+<section class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <section class="songs">
+            {% for song in songs %}
+            <article class="song">
+                <h3>{{ song.name }}</h3>
+                <h4><small>{{ song.artist_name }}</small></h4>
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" allowfullscreen="allowfullscreen" src="https://www.youtube.com/embed/{{ song.youtube_id }}"></iframe>
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+    </div>
+</section>
+{% endblock %}

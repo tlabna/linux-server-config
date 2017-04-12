@@ -1,0 +1,5 @@
+catalog/*.md
+catalog/*.pyc
+catalog/main.py
+catalog/client_secrets.json
+catalog/fb_client_secrets.json

@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+<section class="row">
+    <section class="col-xs-12 text-center">
+        <h1>Add Song</h1>
+        <p>Fill out the form below to add a new song to your music list.</p>
+    </section>
+</section>
+<section class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <section class="music-form">
+            <form action="{{url_for('addSong')}}" method="post">
+                <div class="form-group">
+                    <label for="song-name">Song Name</label>
+                    <input type="text" class="form-control" name="song-name" value="">
+                </div>
+                <div class="form-group">
+                    <label for="artist-name">Artist Name</label>
+                    <input type="text" class="form-control" name="artist-name" value="">
+                </div>
+                <div class="form-group">
+                    <label for="genre_id">Genre</label>
+                    <select name="genre_id">
+                        {% for genre in genres %}
+                        <option value="{{ genre.id }}">{{ genre.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="youtube_url">Youtube link <small class="grey-text">(Please paste in a youtube link for this song)</small></label>
+                    <input type="text" class="form-control" name="youtube_url" value="" placeholder="Ex: https://www.youtube.com/watch?v=JGwWNGJdvx8">
+                </div>
+                <button type="submit" class="btn btn-default" name="submit" type="submit">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button>
+            </form>
+            <a href="{{url_for('showGenres')}}">
+                <button class="btn btn-default delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+            </a>
+        </section>
+    </div>
+</section>
+{% endblock %}

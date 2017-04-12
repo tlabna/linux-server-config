@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="141998948432-6bicc7mlmfot81nfqqalp0qfr6bkc0c2.apps.googleusercontent.com">
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}" />
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}" />
+    <!-- <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+    <title>Music Database</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-custom">
+        <div class="container-fluid">
+            <header class="navbar-header">
+                <a href="/" class="navbar-brand navbar-left">Music Catalog</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-elements" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar icon-bar-custom"></span>
+                    <span class="icon-bar icon-bar-custom"></span>
+                    <span class="icon-bar icon-bar-custom"></span>
+                </button>
+            </header>
+            <div class="collapse navbar-collapse" id="collapsable-elements">
+                <ul class="nav navbar-nav pull-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle dropdown-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Genres <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            {% for genre in genres %}
+                            <li>
+                                <a class="genre-item" href="{{url_for('showGenreSongs', genre_id = genre.id)}}">{{genre.name}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% if 'username' in session %}
+                    <li><a href="{{url_for('addSong')}}" class="nav-option"><span class="glyphicon glyphicon-plus"></span> Add Song</a></li>
+                    <li><a href="{{url_for('userSongs')}}" class="nav-option"><span class="glyphicon glyphicon-music"></span> My Music</a></li>
+                    {% endif %}
+                </ul>
+                {% if 'username' not in session %}
+                <a role="button" class="btn btn-default navbar-btn pull-right" href="{{url_for('showLogin')}}">Login</a> {% else %}
+                <a role="button" class="btn btn-default navbar-btn pull-right" href="{{url_for('logout')}}">Logout</a> {% endif %}
+            </div>
+        </div>
+    </nav>
+    <section class="container">
+        {% block content %} {% endblock %}
+    </section>
+    <script async src="{{url_for('static', filename='js/jquery-3.2.0.min.js')}}"></script>
+    <script async src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    {% block script %} {% endblock %}
+</body>

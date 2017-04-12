@@ -1,0 +1,171 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+/** {
+    border: 1px solid red !important;
+}*/
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+
+/* base.html */
+
+.navbar-custom {
+    background-color: #303F9F;
+    border-radius: 0;
+    color: #FFF;
+}
+
+.navbar-custom .navbar-brand {
+    color: #FFF;
+}
+
+.icon-bar-custom {
+    background-color: #FFF !important;
+}
+
+
+/* main.html */
+
+@media (max-width: 767px) {
+    .genre-item {
+        color: #FFF !important;
+    }
+}
+
+.nav-option {
+    color: #FFF !important;
+}
+
+
+/* Change background color for hover and focus so that text is readable */
+
+.nav-option:hover,
+.nav-option:focus {
+    background-color: #2979FF !important;
+}
+
+.genres {
+    padding: 0;
+    margin: -5px;
+}
+
+#card a {
+    color: #000;
+}
+
+#card {
+    position: relative;
+    display: inline-block;
+    height: 0;
+    width: 100%;
+    padding-top: 100%;
+    height: auto;
+    background-color: #E57373;
+    text-align: center;
+    margin: 1.66%;
+}
+
+@media (min-width: 480px) {
+    #card {
+        width: 33.3333%;
+        padding-top: 33.3333%;
+    }
+}
+
+@media (min-width: 768px) {
+    #card {
+        width: 25%;
+        padding-top: 25%;
+    }
+}
+
+.card-content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 10px;
+}
+
+
+/* public_songs.html, user_songs.html */
+
+.song {
+    border-top: 1px solid #E9E9E9;
+    margin-bottom: 20px;
+}
+
+.song h4 {
+    margin-top: 0;
+}
+
+.song h3 {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+.song-details {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.song-details h3,
+.song-details div {
+    display: inline-block;
+}
+
+.icons {
+    margin-left: 5px;
+}
+
+.icons span:first-child {
+    margin-right: 5px;
+}
+
+.icons a {
+    color: #000;
+}
+
+.flash {
+    background-color: #98FB98;
+    width: 100%;
+    text-decoration: none;
+}
+
+.flash li {
+    list-style-type: none;
+    text-align: center;
+}
+
+
+/* editsong.html, deletesong.html */
+
+.music-form {
+    border: 1px solid #E9E9E9;
+    padding: 15px;
+}
+
+.grey-text {
+    color: grey;
+}
+
+form {
+    margin-bottom: 5px;
+}
+
+
+/* login.html */
+
+hr {
+    margin-top: 0;
+}
+
+#signInButton {
+    display: inline-block;
+}

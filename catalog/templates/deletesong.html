@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+<section class="row">
+    <section class="col-xs-12 text-center">
+        <h1>Delete Song</h1>
+    </section>
+</section>
+<section class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <section class="music-form">
+            <form action="#" method="post">
+                <p>Are you sure you want to delete this song? <span class="text-danger">{{ song.name }} - {{ song.artist_name }}</span></p>
+                <button type="submit" class="btn btn-default delete" id="submit" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
+            </form>
+            <a href="{{url_for('showGenres')}}">
+                <button class="btn btn-default delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+            </a>
+        </section>
+    </div>
+</section>
+{% endblock %}

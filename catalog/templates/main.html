@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+<section class="row">
+    <section class="col-xs-12 text-center">
+        <div class='flash'>
+            {% with messages = get_flashed_messages() %} {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li> <strong> {{ message }} </strong> </li>
+                {% endfor %}
+            </ul>
+            {% endif %} {% endwith %}
+        </div>
+        <h1>Music Catalog</h1>
+        <p>Click on the on the genre boxes below to see what music we have for you.</p>
+    </section>
+</section>
+<section class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <section class="genres">
+            {% for genre in genres %}
+            <article id="card">
+                <a href="{{url_for('showGenreSongs', genre_id = genre.id)}}">
+                    <div class="card-content">
+                        <h4>{{genre.name}}</h4>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </section>
+    </div>
+</section>
+{% endblock %}
